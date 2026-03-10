@@ -75,6 +75,9 @@
       backdrop-filter: blur(10px);
       background: rgba(255, 255, 255, 0.85);
     }
+    .nav-btn { transition: all 0.25s ease; }
+    .nav-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(236, 72, 153, 0.18); }
+    .nav-btn:disabled { opacity: 0.45; cursor: not-allowed; }
   </style>
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -126,7 +129,7 @@
     </svg>
    </div><!-- Page Container -->
    <div id="pages-wrapper" class="relative w-full min-h-full"><!-- Page 1 - Cover -->
-    <div id="page-1" class="page-transition page-visible w-full min-h-full flex flex-col items-center justify-center p-6 md:p-12">
+    <div id="page-1" class="page page-transition page-visible w-full min-h-full flex flex-col items-center justify-center p-6 md:p-12">
      <div class="glass-effect rounded-3xl shadow-2xl p-8 md:p-12 max-w-2xl w-full border border-pink-200 relative overflow-hidden"><!-- Decorative Corner Flowers -->
       <div class="absolute top-0 left-0 w-24 h-24">
        <svg viewbox="0 0 100 100" class="w-full h-full text-pink-200 opacity-50">
@@ -183,9 +186,24 @@
       </div><!-- Page Indicator -->
       <div class="flex justify-center gap-2 mt-4"><span class="w-8 h-2 rounded-full bg-pink-500"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span>
       </div>
+
+      <div class="flex justify-center mb-6">
+       <button type="button" data-next class="nav-btn inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 px-8 py-3 text-white font-semibold shadow-lg">
+        Masuk <span aria-hidden="true">→</span>
+       </button>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between gap-3">
+       <button type="button" data-prev disabled class="nav-btn inline-flex items-center justify-center gap-2 rounded-full border border-pink-300 bg-white px-6 py-3 text-pink-600 font-semibold shadow-sm">
+        <span aria-hidden="true">←</span> Sebelumnya
+       </button>
+       <button type="button" data-next class="nav-btn inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 px-6 py-3 text-white font-semibold shadow-lg">
+        Selanjutnya <span aria-hidden="true">→</span>
+       </button>
+      </div>
      </div>
     </div><!-- Page 2 - Identitas UMKM -->
-    <div id="page-2" class="page-transition page-hidden w-full min-h-full flex flex-col items-center justify-center p-6 md:p-12">
+    <div id="page-2" class="page page-transition page-hidden w-full min-h-full flex flex-col items-center justify-center p-6 md:p-12">
      <div class="glass-effect rounded-3xl shadow-2xl p-8 md:p-12 max-w-2xl w-full border border-pink-200">
       <h2 class="font-playfair text-3xl md:text-4xl font-bold text-pink-700 text-center mb-8">Identitas UMKM</h2><!-- Nama UMKM -->
       <div class="flex items-center gap-4 mb-6 bg-gradient-to-r from-pink-50 to-white rounded-2xl p-5 border-l-4 border-pink-500">
@@ -255,9 +273,18 @@
       </div><!-- Page Indicator -->
       <div class="flex justify-center gap-2 mt-8"><span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-8 h-2 rounded-full bg-pink-500"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span>
       </div>
+
+      <div class="flex flex-col sm:flex-row justify-between gap-3">
+       <button type="button" data-prev class="nav-btn inline-flex items-center justify-center gap-2 rounded-full border border-pink-300 bg-white px-6 py-3 text-pink-600 font-semibold shadow-sm">
+        <span aria-hidden="true">←</span> Sebelumnya
+       </button>
+       <button type="button" data-next class="nav-btn inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 px-6 py-3 text-white font-semibold shadow-lg">
+        Selanjutnya <span aria-hidden="true">→</span>
+       </button>
+      </div>
      </div>
     </div><!-- Page 3 - Produk -->
-    <div id="page-3" class="page-transition page-hidden w-full min-h-full flex flex-col items-center justify-center p-6 md:p-12">
+    <div id="page-3" class="page page-transition page-hidden w-full min-h-full flex flex-col items-center justify-center p-6 md:p-12">
      <div class="glass-effect rounded-3xl shadow-2xl p-8 md:p-12 max-w-2xl w-full border border-pink-200 max-h-full overflow-y-auto">
       <h2 class="font-playfair text-3xl md:text-4xl font-bold text-pink-700 text-center mb-6">Produk yang Dijual</h2>
       <div class="space-y-3"><!-- Jilbab Segitiga -->
@@ -307,4 +334,64 @@
         <div class="w-10 h-10 rounded-full bg-pink-200 flex items-center justify-center flex-shrink-0">
          <svg class="w-6 h-6 text-pink-600" viewbox="0 0 50 50">
           <circle cx="15" cy="20" r="4" fill="currentColor" /> <circle cx="25" cy="15" r="4" fill="currentColor" /> <circle cx="35" cy="20" r="4" fill="currentColor" /> <circle cx="25" cy="32" r="6" fill="#db2777" />
-         </svg
+                  </svg>
+        </div><span class="text-gray-700 font-medium">Aksesori Hijab</span>
+       </div>
+      </div>
+
+      <div class="flex justify-center gap-2 mt-8"><span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-8 h-2 rounded-full bg-pink-500"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span> <span class="w-2 h-2 rounded-full bg-pink-200"></span>
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between gap-3">
+       <button type="button" data-prev class="nav-btn inline-flex items-center justify-center gap-2 rounded-full border border-pink-300 bg-white px-6 py-3 text-pink-600 font-semibold shadow-sm">
+        <span aria-hidden="true">←</span> Sebelumnya
+       </button>
+       <button type="button" data-next disabled class="nav-btn inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-pink-300 to-pink-400 px-6 py-3 text-white font-semibold shadow-lg">
+        Selanjutnya <span aria-hidden="true">→</span>
+       </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+
+  <script>
+    const pages = Array.from(document.querySelectorAll('.page'));
+    let currentPage = 0;
+
+    function updatePageVisibility(nextPageIndex) {
+      pages.forEach((page, index) => {
+        page.classList.remove('page-visible', 'page-hidden', 'page-hidden-left');
+
+        if (index === nextPageIndex) {
+          page.classList.add('page-visible');
+        } else if (index < nextPageIndex) {
+          page.classList.add('page-hidden-left');
+        } else {
+          page.classList.add('page-hidden');
+        }
+      });
+    }
+
+    function goToPage(nextPageIndex) {
+      if (nextPageIndex < 0 || nextPageIndex >= pages.length) return;
+      currentPage = nextPageIndex;
+      updatePageVisibility(currentPage);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('[data-next]').forEach((button) => {
+      button.addEventListener('click', () => goToPage(currentPage + 1));
+    });
+
+    document.querySelectorAll('[data-prev]').forEach((button) => {
+      button.addEventListener('click', () => goToPage(currentPage - 1));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') goToPage(currentPage + 1);
+      if (event.key === 'ArrowLeft') goToPage(currentPage - 1);
+    });
+  </script>
+ </body>
+</html>
